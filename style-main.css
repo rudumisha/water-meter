@@ -1,0 +1,37 @@
+
+        body {
+            display: flex;
+            margin: 0;
+            height: 100vh;
+            background-color: #f0f6ff;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 200px;
+            background: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+        .menu li {
+            margin: 20px 0;
+        }
+        .menu li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .content {
+            flex: 1;
+            background: #eaf3ff;
+            padding: 20px;
+        }
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            display: block;
+            margin-bottom: 10px;
+        }
