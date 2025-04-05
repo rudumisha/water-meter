@@ -1,0 +1,40 @@
+footer {
+  margin-top: 50px;
+}
+
+.footer-container {
+  background-color: #b6eef2;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+.footer-nav {
+  font-size: 14px;
+}
+
+.footer-nav a {
+  color: #000;
+  text-decoration: none;
+  display: block;
+  margin: 4px 0;
+}
+
+.footer-contacts {
+  font-size: 14px;
+}
+
+.footer-bottom {
+  background-color: #a0d4d9;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px 0;
+  color: #555;
+}
