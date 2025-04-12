@@ -159,4 +159,11 @@ footer {
     padding: 10px 0;
     color: #555;
   }
+  .water-level {
+    background-color: #00bfff;
+    height: 0;
+    width: 100%;
+    transition: height 0.5s ease;
+    border-radius: 0 0 10px 10px;
+  }
   
