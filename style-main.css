@@ -1,225 +1,218 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  body {
-    background-color: #e9f9fc;
-    color: #333;
-  }
-  
-  header {
-    background-color: #c9f2f7;
-    padding: 10px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  nav a {
-    margin: 0 10px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .user-icon {
-    background-color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  main {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 60px;
-  }
-  
-  .left {
-    width: 45%;
-  }
-  
-  .left h2 {
-    margin-bottom: 20px;
-  }
-  
-  .left p {
-    font-size: 14px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-  
-  .left label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-  
-  .left input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    background-color: #c9f2f7;
-    border: none;
-    border-radius: 10px;
-  }
-  
-  .left button {
-    background-color: #9be2ef;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .right {
-    width: 45%;
-  }
-  
-  .water-box {
-    background-color: #c9f2f7;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .meme {
-    width: 150px;
-    margin: 10px 0;
-  }
-  
-  .water-glass {
-    position: relative;
-    width: 100px;
-    height: 150px;
-    background-color: #e0f7ff;
-    border-radius: 10px;
-    margin: 0 auto 10px;
-    overflow: hidden;
-  }
-  
-  .water-level {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60%;
-    background-color: #62c9e4;
-  }
-  
-  .liters {
-    display: block;
-    margin-top: 5px;
-    font-weight: bold;
-  }
-  /* ==== FOOTER STYLES ==== */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #e9f9fc;
+  color: #333;
+}
+
+header {
+  background-color: #c9f2f7;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.user-icon {
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+}
+
+.left {
+  width: 45%;
+}
+
+.left h2 {
+  margin-bottom: 20px;
+}
+
+.left p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.left label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.left input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #c9f2f7;
+  border: none;
+  border-radius: 10px;
+}
+
+.left button {
+  background-color: #9be2ef;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.right {
+  width: 45%;
+}
+
+.water-box {
+  background-color: #c9f2f7;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.meme {
+  width: 150px;
+  margin: 10px 0;
+}
+
+/* Зміни для бутилкоподібної форми */
+.water-glass {
+  position: relative;
+  width: 120px;
+  height: 250px;
+  background-color: #f0f0f0;
+  border-radius: 40px 40px 10px 10px; /* Робимо верх бутилки округлим */
+  margin: 0 auto 10px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+}
+
+.water-level {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #6ec1e4;
+  transition: height 0.5s ease;
+  border-radius: 0 0 10px 10px; /* Округлення дна води */
+}
+
+/* Додаткові стилі для води */
+.liters {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Змінити вигляд поля для введення кількості води */
+input[placeholder="мл"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #e0f7ff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+#add-water {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#add-water:hover {
+  background-color: #1565c0;
+}
+
+/* ==== FOOTER STYLES ==== */
 
 footer {
-    margin-top: 50px;
-  }
-  
-  .footer-container {
-    background-color: #b6eef2;
-    display: flex;
-    justify-content: space-around;
-    padding: 40px 20px;
-    flex-wrap: wrap;
-  }
-  
-  .footer-logo {
-    font-weight: bold;
-    line-height: 1.2;
-    font-size: 16px;
-  }
-  
-  .footer-nav {
-    font-size: 14px;
-  }
-  
-  .footer-nav a {
-    color: #000;
-    text-decoration: none;
-    display: block;
-    margin: 4px 0;
-  }
-  
-  .footer-contacts {
-    font-size: 14px;
-  }
-  
-  .footer-bottom {
-    background-color: #a0d4d9;
-    text-align: center;
-    font-size: 13px;
-    padding: 10px 0;
-    color: #555;
-  }
-  .water-level {
-    background-color: #00bfff;
-    height: 0;
-    width: 100%;
-    transition: height 0.5s ease;
-    border-radius: 0 0 10px 10px;
-  }
-  .water-glass {
-    position: relative;
-    width: 100px;
-    height: 200px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #f0f0f0;
-    margin-top: 10px;
-  }
-  
-  .water-level {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 0%;
-    background-color: #6ec1e4;
-    transition: height 0.5s ease;
-  }
-  
-  #reset-button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  #reset-button:hover {
-    background-color: #c0392b;
-  }
-  #add-water {
-    background-color: #1e90ff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 16px;
-    font-size: 15px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  #add-water:hover {
-    background-color: #1565c0;
-  }
+  margin-top: 50px;
+}
+
+.footer-container {
+  background-color: #b6eef2;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+.footer-nav {
+  font-size: 14px;
+}
+
+.footer-nav a {
+  color: #000;
+  text-decoration: none;
+  display: block;
+  margin: 4px 0;
+}
+
+.footer-contacts {
+  font-size: 14px;
+}
+
+.footer-bottom {
+  background-color: #a0d4d9;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px 0;
+  color: #555;
+}
+
+#reset-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#reset-button:hover {
+  background-color: #c0392b;
+}
