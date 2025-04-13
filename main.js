@@ -1,43 +1,99 @@
+// DOM-елементи
+const weightInput = document.querySelector('input[placeholder="Вага"]');
+const heightInput = document.querySelector('input[placeholder="Ріст"]');
+const addButton = document.querySelector('button');
+const waterNormLabel = document.querySelector('.norm-label');
+const consumedLabel = document.querySelector('.right p:nth-of-type(2)');
+const waterInput = document.querySelector('input[placeholder="мл"]');
+const waterLevel = document.querySelector('.water-level');
+const waterNormDisplay = document.querySelector('.liters');
+const resetButton = document.getElementById('reset-button');
+const message = document.querySelector('.congrats-message');
 
-  const weightInput = document.querySelector('input[placeholder="Вага"]');
-  const heightInput = document.querySelector('input[placeholder="Ріст"]');
-  const waterNormLabel = document.querySelector('.norm-label');
-  const addButton = document.querySelector('button');
-  const consumedInput = document.querySelector('input[placeholder="мл"]');
-  const waterLevel = document.querySelector('.water-level');
-  const litersLabel = document.querySelector('.liters');
+// Дані
+let waterNorm = 0;
+let consumedWater = 0;
 
-  let dailyNorm = 2500; // мл за замовчуванням
-  let consumed = 0;
+// Додавання ваги та росту
+addButton.addEventListener('click', () => {
+  const weight = parseFloat(weightInput.value);
+  const height = parseFloat(heightInput.value);
 
-  // Рахуємо норму за формулою: вага * 30 (мл на кг)
-  function calculateNorm() {
-    const weight = parseFloat(weightInput.value);
-    if (!isNaN(weight)) {
-      dailyNorm = Math.round(weight * 30); // мл
-      updateDisplay();
-    }
+  if (!weight || weight <= 0 || !height || height <= 0) {
+    alert('Введіть коректні значення ваги і росту!');
+    return;
   }
 
-  // Додаємо введену кількість води
-  function updateConsumed() {
-    const value = parseFloat(consumedInput.value);
-    if (!isNaN(value)) {
-      consumed += value;
-      if (consumed > dailyNorm) consumed = dailyNorm;
-      updateDisplay();
-    }
+  // Формула з урахуванням росту
+  waterNorm = weight * 35;
+  consumedWater = 0;
+
+  updateDisplay();
+});
+
+// Введення випитої води
+const addWaterButton = document.getElementById('add-water');
+
+addWaterButton.addEventListener('click', () => {
+  const addedWater = parseFloat(waterInput.value);
+  if (!addedWater || addedWater <= 0) {
+    alert('Введіть коректну кількість води!');
+    return;
   }
 
-  // Оновлюємо інтерфейс
-  function updateDisplay() {
-    waterNormLabel.textContent = `Your norm: ${dailyNorm} мл`;
-    const remaining = Math.max(dailyNorm - consumed, 0);
-    const percent = (consumed / dailyNorm) * 100;
-    waterLevel.style.height = `${percent}%`;
-    litersLabel.textContent = `${(consumed / 1000).toFixed(2)} л / ${(dailyNorm / 1000).toFixed(2)} л`;
+  consumedWater += addedWater;
+  if (consumedWater > waterNorm) consumedWater = waterNorm;
+
+  updateDisplay();
+  waterInput.value = ''; // Очищаємо поле після додавання
+});
+
+// Кнопка скидання
+resetButton.addEventListener('click', () => {
+  consumedWater = 0;
+  localStorage.setItem('consumedWater', consumedWater);
+  updateDisplay();
+});
+
+// Оновлення інтерфейсу
+function updateDisplay() {
+  const normLiters = (waterNorm / 1000).toFixed(2);
+  const consumedLiters = (consumedWater / 1000).toFixed(2);
+
+  waterNormLabel.textContent = `Your norm: ${normLiters} л`;
+  consumedLabel.textContent = `Consumed in a day: ${consumedLiters} л`;
+  waterNormDisplay.textContent = `${normLiters} л`;
+
+  const percent = waterNorm ? (consumedWater / waterNorm) * 100 : 0;
+  waterLevel.style.height = `${Math.min(percent, 100)}%`;
+
+  if (percent < 50) {
+    waterLevel.style.backgroundColor = '#6ec1e4';
+  } else if (percent < 90) {
+    waterLevel.style.backgroundColor = '#1e90ff';
+  } else {
+    waterLevel.style.backgroundColor = '#00b894';
   }
 
-  addButton.addEventListener('click', calculateNorm);
-  consumedInput.addEventListener('change', updateConsumed);
+  // Повідомлення
+  if (percent >= 100) {
+    message.style.display = 'block';
+  } else {
+    message.style.display = 'none';
+  }
 
+  // Зберігаємо
+  localStorage.setItem('waterNorm', waterNorm);
+  localStorage.setItem('consumedWater', consumedWater);
+}
+
+// Відновлення збережених даних
+window.addEventListener('load', () => {
+  const savedNorm = localStorage.getItem('waterNorm');
+  const savedConsumed = localStorage.getItem('consumedWater');
+
+  if (savedNorm) waterNorm = parseFloat(savedNorm);
+  if (savedConsumed) consumedWater = parseFloat(savedConsumed);
+
+  updateDisplay();
+});
