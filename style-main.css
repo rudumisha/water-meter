@@ -94,13 +94,12 @@ main {
   margin: 10px 0;
 }
 
-/* Зміни для бутилкоподібної форми */
 .water-glass {
   position: relative;
   width: 120px;
   height: 250px;
   background-color: #f0f0f0;
-  border-radius: 40px 40px 10px 10px; /* Робимо верх бутилки округлим */
+  border-radius: 40px 40px 10px 10px; 
   margin: 0 auto 10px;
   overflow: hidden;
   border: 2px solid #ccc;
@@ -113,10 +112,9 @@ main {
   height: 0%;
   background-color: #6ec1e4;
   transition: height 0.5s ease;
-  border-radius: 0 0 10px 10px; /* Округлення дна води */
+  border-radius: 0 0 10px 10px; 
 }
 
-/* Додаткові стилі для води */
 .liters {
   display: block;
   margin-top: 5px;
@@ -125,7 +123,6 @@ main {
   color: #333;
 }
 
-/* Змінити вигляд поля для введення кількості води */
 input[placeholder="мл"] {
   width: 100%;
   padding: 8px;
@@ -154,7 +151,7 @@ input[placeholder="мл"] {
   background-color: #1565c0;
 }
 
-/* ==== FOOTER STYLES ==== */
+
 
 footer {
   margin-top: 50px;
